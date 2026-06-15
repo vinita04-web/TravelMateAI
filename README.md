@@ -73,3 +73,14 @@ TravelMate AI is a smart travel planning web application developed using Streaml
 ---
 
 ## 📂 Project Structure
+TravelMateAI/
+│
+├── app.py
+├── requirements.txt
+├── budget.csv
+├── destinations.csv
+├── experiences.csv
+├── food.csv
+├── hotels.csv
+├── insights.csv
+└── README.md
