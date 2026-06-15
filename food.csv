@@ -1,0 +1,96 @@
+Destination,Budget Type,Restaurant,Famous Dish,Google Maps
+Goa,Low,Vinayak Family Restaurant,Goan Fish Curry,https://maps.google.com/?q=Vinayak+Family+Restaurant+Goa
+Goa,Medium,Fisherman's Wharf,Prawn Curry,https://maps.google.com/?q=Fishermans+Wharf+Goa
+Goa,Luxury,Thalassa,Seafood Platter,https://maps.google.com/?q=Thalassa+Goa
+
+Jaipur,Low,Rawat Misthan Bhandar,Pyaaz Kachori,https://maps.google.com/?q=Rawat+Misthan+Bhandar+Jaipur
+Jaipur,Medium,Spice Court,Gatte Ki Sabzi,https://maps.google.com/?q=Spice+Court+Jaipur
+Jaipur,Luxury,Suvarna Mahal,Rajasthani Thali,https://maps.google.com/?q=Suvarna+Mahal+Jaipur
+
+Udaipur,Low,Natraj Dining Hall,Dal Baati,https://maps.google.com/?q=Natraj+Dining+Hall+Udaipur
+Udaipur,Medium,Tribute Restaurant,Rajasthani Thali,https://maps.google.com/?q=Tribute+Restaurant+Udaipur
+Udaipur,Luxury,Upre by 1559 AD,Lake View Dining,https://maps.google.com/?q=Upre+1559+AD+Udaipur
+
+Ujjain,Low,Shree Ganga Restaurant,Poha Jalebi,https://maps.google.com/?q=Shree+Ganga+Restaurant+Ujjain
+Ujjain,Medium,Empire Restaurant,North Indian Thali,https://maps.google.com/?q=Empire+Restaurant+Ujjain
+Ujjain,Luxury,Anjushree Restaurant,Special Buffet,https://maps.google.com/?q=Anjushree+Restaurant+Ujjain
+
+Lonavala,Low,Rama Krishna,Vada Pav,https://maps.google.com/?q=Rama+Krishna+Lonavala
+Lonavala,Medium,Golden Vadapav,Chikki,https://maps.google.com/?q=Golden+Vadapav+Lonavala
+Lonavala,Luxury,Fariyas Restaurant,Multi Cuisine,https://maps.google.com/?q=Fariyas+Lonavala
+
+Manali,Low,Mount View Restaurant,Siddu,https://maps.google.com/?q=Mount+View+Restaurant+Manali
+Manali,Medium,Johnson's Cafe,Trout Fish,https://maps.google.com/?q=Johnsons+Cafe+Manali
+Manali,Luxury,The Corner House,Himachali Cuisine,https://maps.google.com/?q=The+Corner+House+Manali
+
+Shimla,Low,Ashiana Restaurant,Madra,https://maps.google.com/?q=Ashiana+Restaurant+Shimla
+Shimla,Medium,Wake and Bake,Cafe Special,https://maps.google.com/?q=Wake+and+Bake+Shimla
+Shimla,Luxury,Cecil Restaurant,Fine Dining,https://maps.google.com/?q=Cecil+Restaurant+Shimla
+
+Delhi,Low,Sita Ram Diwan Chand,Chole Bhature,https://maps.google.com/?q=Sita+Ram+Diwan+Chand+Delhi
+Delhi,Medium,Karim's,Mughlai Cuisine,https://maps.google.com/?q=Karims+Delhi
+Delhi,Luxury,Indian Accent,Chef's Tasting Menu,https://maps.google.com/?q=Indian+Accent+Delhi
+
+Mumbai,Low,Anand Stall,Vada Pav,https://maps.google.com/?q=Anand+Stall+Mumbai
+Mumbai,Medium,Britannia & Co,Berry Pulao,https://maps.google.com/?q=Britannia+Mumbai
+Mumbai,Luxury,Wasabi by Morimoto,Japanese Cuisine,https://maps.google.com/?q=Wasabi+Mumbai
+
+Pune,Low,Vaishali,Misal Pav,https://maps.google.com/?q=Vaishali+Pune
+Pune,Medium,Shabree,Traditional Thali,https://maps.google.com/?q=Shabree+Pune
+Pune,Luxury,Malaka Spice,Asian Cuisine,https://maps.google.com/?q=Malaka+Spice+Pune
+
+Varanasi,Low,Kashi Chat Bhandar,Chaat,https://maps.google.com/?q=Kashi+Chat+Bhandar+Varanasi
+Varanasi,Medium,Brown Bread Bakery,Continental,https://maps.google.com/?q=Brown+Bread+Bakery+Varanasi
+Varanasi,Luxury,The Great Kabab Factory,Kebabs,https://maps.google.com/?q=Great+Kabab+Factory+Varanasi
+
+Rishikesh,Low,Chotiwala,Aloo Puri,https://maps.google.com/?q=Chotiwala+Rishikesh
+Rishikesh,Medium,Little Buddha Cafe,Israeli Cuisine,https://maps.google.com/?q=Little+Buddha+Cafe+Rishikesh
+Rishikesh,Luxury,Ganga Kinare,Fine Dining,https://maps.google.com/?q=Ganga+Kinare+Rishikesh
+
+Amritsar,Low,Bharawan Da Dhaba,Amritsari Kulcha,https://maps.google.com/?q=Bharawan+Da+Dhaba+Amritsar
+Amritsar,Medium,Kesar Da Dhaba,Punjabi Thali,https://maps.google.com/?q=Kesar+Da+Dhaba+Amritsar
+Amritsar,Luxury,Taj Swarna Restaurant,Fine Dining,https://maps.google.com/?q=Taj+Swarna+Amritsar
+
+Agra,Low,Deviram Sweets,Bedai,https://maps.google.com/?q=Deviram+Sweets+Agra
+Agra,Medium,Pinch of Spice,Mughlai Cuisine,https://maps.google.com/?q=Pinch+of+Spice+Agra
+Agra,Luxury,Esphahan,Royal Dining,https://maps.google.com/?q=Esphahan+Agra
+
+Dubai,Low,Al Mallah,Shawarma,https://maps.google.com/?q=Al+Mallah+Dubai
+Dubai,Medium,Arabian Tea House,Emirati Cuisine,https://maps.google.com/?q=Arabian+Tea+House+Dubai
+Dubai,Luxury,At.mosphere,Fine Dining,https://maps.google.com/?q=At.mosphere+Dubai
+
+Singapore,Low,Tian Tian Chicken Rice,Hainanese Chicken Rice,https://maps.google.com/?q=Tian+Tian+Singapore
+Singapore,Medium,Jumbo Seafood,Chilli Crab,https://maps.google.com/?q=Jumbo+Seafood+Singapore
+Singapore,Luxury,Odette,French Cuisine,https://maps.google.com/?q=Odette+Singapore
+
+Bali,Low,Warung Biah Biah,Nasi Goreng,https://maps.google.com/?q=Warung+Biah+Biah+Bali
+Bali,Medium,Bebek Bengil,Crispy Duck,https://maps.google.com/?q=Bebek+Bengil+Bali
+Bali,Luxury,Kubu at Mandapa,Fine Dining,https://maps.google.com/?q=Kubu+Mandapa+Bali
+
+Paris,Low,Le Relais de l'Entrecote,Steak Frites,https://maps.google.com/?q=Le+Relais+Paris
+Paris,Medium,Cafe de Flore,Croissant,https://maps.google.com/?q=Cafe+de+Flore+Paris
+Paris,Luxury,Le Jules Verne,French Fine Dining,https://maps.google.com/?q=Le+Jules+Verne+Paris
+
+Maldives,Low,Sea House Cafe,Tuna Curry,https://maps.google.com/?q=Sea+House+Cafe+Maldives
+Maldives,Medium,Symphony Restaurant,Maldivian Cuisine,https://maps.google.com/?q=Symphony+Restaurant+Maldives
+Maldives,Luxury,5.8 Undersea Restaurant,Underwater Dining,https://maps.google.com/?q=5.8+Undersea+Restaurant
+
+Bangkok,Low,Thipsamai,Pad Thai,https://maps.google.com/?q=Thipsamai+Bangkok
+Bangkok,Medium,Somboon Seafood,Seafood Curry,https://maps.google.com/?q=Somboon+Bangkok
+Bangkok,Luxury,Sirocco,Sky Dining,https://maps.google.com/?q=Sirocco+Bangkok
+
+London,Low,Poppies Fish & Chips,Fish and Chips,https://maps.google.com/?q=Poppies+London
+London,Medium,Dishoom,Indian Fusion,https://maps.google.com/?q=Dishoom+London
+London,Luxury,Restaurant Gordon Ramsay,Fine Dining,https://maps.google.com/?q=Restaurant+Gordon+Ramsay+London
+
+Tokyo,Low,Ichiran Ramen,Ramen,https://maps.google.com/?q=Ichiran+Tokyo
+Tokyo,Medium,Sushi Zanmai,Sushi,https://maps.google.com/?q=Sushi+Zanmai+Tokyo
+Tokyo,Luxury,Sukiyabashi Jiro,Omakase,https://maps.google.com/?q=Sukiyabashi+Jiro+Tokyo
+
+New York,Low,Joe's Pizza,New York Pizza,https://maps.google.com/?q=Joes+Pizza+New+York
+New York,Medium,Katz's Delicatessen,Pastrami Sandwich,https://maps.google.com/?q=Katzs+Delicatessen+New+York
+New York,Luxury,Per Se,Fine Dining,https://maps.google.com/?q=Per+Se+New+York
+
+Zurich,Low,Sternen Grill,Sausages,https://maps.google.com/?q=Sternen+Grill+Zurich
+Zurich,Medium,Zeughauskeller,Swiss Cuisine,https://maps.google.com/?q=Zeughauskeller+Zurich
+Zurich,Luxury,Pavillon,Swiss Fine Dining,https://maps.google.com/?q=Pavillon+Zurich
