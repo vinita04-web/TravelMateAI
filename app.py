@@ -52,64 +52,73 @@ if not st.session_state.logged_in:
         ["Login", "Sign Up"]
     )
 
-    # Read latest users database from the persistent CSV file
     users_df = pd.read_csv("users.csv")
 
-   # LOGIN
-if auth_option == "Login":
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
+    # LOGIN
+    if auth_option == "Login":
+        username = st.text_input("Username")
+        password = st.text_input("Password", type="password")
 
-    if st.button("Login"):
-        users_df = pd.read_csv("users.csv")
+        if st.button("Login"):
+            users_df = pd.read_csv("users.csv")
 
-        # Remove extra spaces
-        users_df["Username"] = users_df["Username"].astype(str).str.strip()
-        users_df["Password"] = users_df["Password"].astype(str).str.strip()
+            users_df["Username"] = users_df["Username"].astype(str).str.strip()
+            users_df["Password"] = users_df["Password"].astype(str).str.strip()
 
-        username = username.strip()
-        password = password.strip()
+            username = username.strip()
+            password = password.strip()
 
-        matched_user = users_df[
-            (users_df["Username"] == username) &
-            (users_df["Password"] == password)
-        ]
+            # --- DEBUG BLOCK (Properly Indented) ---
+            st.write("Current users:")
+            st.dataframe(users_df)
+            st.write("Entered Username:", username)
+            st.write("Entered Password:", password)
+            # --------------------------------------
 
-        if not matched_user.empty:
-            st.session_state.logged_in = True
-            st.session_state.username = username
-            st.success("Login Successful!")
-            st.rerun()
-        else:
-            st.error("Invalid Username or Password")
+            matched_user = users_df[
+                (users_df["Username"] == username) &
+                (users_df["Password"] == password)
+            ]
+
+            if not matched_user.empty:
+                st.session_state.logged_in = True
+                st.session_state.username = username
+                st.success("Login Successful!")
+                st.rerun()
+            else:
+                st.error("Invalid Username or Password")
 
     # SIGN UP
-else:
-    new_username = st.text_input("Create Username")
-    new_password = st.text_input("Create Password", type="password")
+    else:
+        new_username = st.text_input("Create Username")
+        new_password = st.text_input("Create Password", type="password")
 
-    if st.button("Sign Up"):
-        users_df = pd.read_csv("users.csv")
+        if st.button("Sign Up"):
+            users_df = pd.read_csv("users.csv")
+            users_df["Username"] = users_df["Username"].astype(str).str.strip()
 
-        users_df["Username"] = users_df["Username"].astype(str).str.strip()
+            if new_username.strip() == "" or new_password.strip() == "":
+                st.error("Username and Password cannot be empty.")
+            elif new_username.strip() in users_df["Username"].values:
+                st.error("Username already exists.")
+            else:
+                new_user = pd.DataFrame({
+                    "Username": [new_username.strip()],
+                    "Password": [new_password.strip()]
+                })
 
-        if new_username.strip() == "" or new_password.strip() == "":
-            st.error("Username and Password cannot be empty.")
+                users_df = pd.concat(
+                    [users_df, new_user],
+                    ignore_index=True
+                )
 
-        elif new_username.strip() in users_df["Username"].values:
-            st.error("Username already exists.")
+                users_df.to_csv("users.csv", index=False)
 
-        else:
-            new_user = pd.DataFrame({
-                "Username": [new_username.strip()],
-                "Password": [new_password.strip()]
-            })
+                st.success("Account created successfully!")
+                st.info("Please login using your new account.")
 
-            users_df = pd.concat([users_df, new_user], ignore_index=True)
-            users_df.to_csv("users.csv", index=False)
+    st.stop()
 
-            st.success("Account created successfully!")
-            st.info("Please login using your new account.")
 # ==================== MAIN APPLICATION ====================
 st.title("✈️ TravelMate AI")
 st.subheader("Smart Trip Planner with Local Experiences and Group Expense Management")
