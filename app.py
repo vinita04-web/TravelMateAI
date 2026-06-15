@@ -3,17 +3,6 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import os
 
-# Session state initialization
-if "logged_in" not in st.session_state:
-    st.session_state.logged_in = False
-
-if "username" not in st.session_state:
-    st.session_state.username = ""
-
-if "users" not in st.session_state:
-    st.session_state.users = {
-        "admin": "1234"
-    }
 # ==================== PAGE CONFIG ====================
 st.set_page_config(
     page_title="TravelMate AI",
@@ -21,21 +10,28 @@ st.set_page_config(
     layout="wide"
 )
 
-# Initialize login session
+# Session state initialization
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
 if "username" not in st.session_state:
     st.session_state.username = ""
 
+# Ensure the persistent CSV storage exists with proper headers
+if not os.path.exists("users.csv"):
+    pd.DataFrame(columns=["Username", "Password"]).to_csv("users.csv", index=False)
+
+# Seed default admin account into CSV if the file is completely empty
+try:
+    users_df = pd.read_csv("users.csv")
+    if users_df.empty:
+        pd.DataFrame({"Username": ["admin"], "Password": ["1234"]}).to_csv("users.csv", index=False)
+except Exception:
+    pd.DataFrame({"Username": ["admin"], "Password": ["1234"]}).to_csv("users.csv", index=False)
+
 # Initialize trip history
 if "trip_history" not in st.session_state:
     st.session_state.trip_history = []
-
-if not os.path.exists("users.csv"):
-    pd.DataFrame(
-        columns=["Username", "Password"]
-    ).to_csv("users.csv", index=False)
     
 ALL_DESTINATIONS = sorted([
     "Goa","Jaipur","Udaipur","Ujjain","Lonavala",
@@ -49,7 +45,6 @@ ALL_DESTINATIONS = sorted([
 
 # ==================== AUTHENTICATION ====================
 if not st.session_state.logged_in:
-
     st.title("🔐 TravelMate AI")
 
     auth_option = st.radio(
@@ -57,17 +52,19 @@ if not st.session_state.logged_in:
         ["Login", "Sign Up"]
     )
 
+    # Read latest users database from the persistent CSV file
+    users_df = pd.read_csv("users.csv")
+
     # LOGIN
     if auth_option == "Login":
-
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
 
         if st.button("Login"):
-
-            users = st.session_state.users
-
-            if username in users and users[username] == password:
+            # Check credentials against matching rows in the CSV file
+            matched_user = users_df[(users_df["Username"] == username) & (users_df["Password"] == str(password))]
+            
+            if not matched_user.empty:
                 st.session_state.logged_in = True
                 st.session_state.username = username
                 st.success("Login Successful!")
@@ -77,25 +74,26 @@ if not st.session_state.logged_in:
 
     # SIGN UP
     else:
-
         new_username = st.text_input("Create Username")
         new_password = st.text_input("Create Password", type="password")
 
         if st.button("Sign Up"):
-
-            users = st.session_state.users
-
-            if new_username in users:
+            if new_username.strip() == "" or new_password.strip() == "":
+                st.error("Username and Password fields cannot be empty.")
+            elif new_username in users_df["Username"].astype(str).values:
                 st.error("Username already exists.")
             else:
-                users[new_username] = new_password
-                st.session_state.users = users
+                # Append new user details structurally to the CSV file
+                new_user_row = pd.DataFrame({"Username": [new_username], "Password": [str(new_password)]})
+                updated_users_df = pd.concat([users_df, new_user_row], ignore_index=True)
+                updated_users_df.to_csv("users.csv", index=False)
+                
                 st.success("Account created successfully!")
                 st.info("Now login using your new account.")
 
     st.stop()
-# ==================== MAIN APPLICATION (ACCESSED ONLY LOGGED IN) ====================
 
+# ==================== MAIN APPLICATION ====================
 st.title("✈️ TravelMate AI")
 st.subheader("Smart Trip Planner with Local Experiences and Group Expense Management")
 
@@ -115,12 +113,12 @@ menu = st.sidebar.radio(
         "Logout"
     ]
 )
+
 # ==================== HOME ====================
 if menu == "Home":
     st.header(f"Welcome {st.session_state.username} 👋")
     st.write("""
 TravelMate AI helps users:
-
 - 🗺️ Plan trips
 - 🍽️ Discover local experiences
 - 💰 Predict travel budgets
@@ -431,7 +429,6 @@ elif menu == "Analytics":
     st.subheader("💰 Expense Summary")
 
     col1, col2, col3, col4 = st.columns(4)
-
     col1.metric("🏨 Hotel", f"₹{hotel}")
     col2.metric("🍽️ Food", f"₹{food}")
     col3.metric("🚌 Transport", f"₹{transport}")
@@ -452,23 +449,19 @@ elif menu == "Analytics":
 
     # Pie Chart
     st.subheader("🥧 Expense Distribution")
+    if expense_df["Expense"].sum() > 0:
+        fig, ax = plt.subplots()
+        ax.pie(
+            expense_df["Expense"],
+            labels=expense_df["Category"],
+            autopct="%1.1f%%",
+            startangle=90
+        )
+        ax.axis("equal")
+        st.pyplot(fig)
+    else:
+        st.info("No expense data available to display the pie chart.")
 
-if expense_df["Expense"].sum() > 0:
-    fig, ax = plt.subplots()
-
-    ax.pie(
-        expense_df["Expense"],
-        labels=expense_df["Category"],
-        autopct="%1.1f%%",
-        startangle=90
-    )
-
-    ax.axis("equal")
-
-    st.pyplot(fig)
-
-else:
-    st.info("No expense data available to display the pie chart.")
     # Bar Chart
     st.subheader("📈 Expense Comparison")
     st.bar_chart(expense_df.set_index("Category"))
@@ -535,11 +528,9 @@ elif menu == "Trip History":
     else:
         st.info("No trips saved yet.")
 
+# ==================== LOGOUT ====================
 elif menu == "Logout":
-
     st.session_state.logged_in = False
     st.session_state.username = ""
-
     st.success("Logged out successfully!")
-
     st.rerun()
