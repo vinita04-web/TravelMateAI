@@ -452,11 +452,23 @@ elif menu == "Analytics":
 
     # Pie Chart
     st.subheader("🥧 Expense Distribution")
-    fig, ax = plt.subplots(figsize=(6, 6))
-    ax.pie(expense_df["Expense"], labels=expense_df["Category"], autopct="%1.1f%%", startangle=90)
-    ax.axis("equal")  
+
+if expense_df["Expense"].sum() > 0:
+    fig, ax = plt.subplots()
+
+    ax.pie(
+        expense_df["Expense"],
+        labels=expense_df["Category"],
+        autopct="%1.1f%%",
+        startangle=90
+    )
+
+    ax.axis("equal")
+
     st.pyplot(fig)
 
+else:
+    st.info("No expense data available to display the pie chart.")
     # Bar Chart
     st.subheader("📈 Expense Comparison")
     st.bar_chart(expense_df.set_index("Category"))
