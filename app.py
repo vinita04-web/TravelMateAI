@@ -17,11 +17,9 @@ if "logged_in" not in st.session_state:
 if "username" not in st.session_state:
     st.session_state.username = ""
 
-# Ensure the persistent CSV storage exists with proper headers
 if not os.path.exists("users.csv"):
     pd.DataFrame(columns=["Username", "Password"]).to_csv("users.csv", index=False)
 
-# Seed default admin account into CSV if the file is completely empty
 try:
     users_df = pd.read_csv("users.csv")
     if users_df.empty:
